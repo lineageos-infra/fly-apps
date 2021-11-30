@@ -1,0 +1,9 @@
+app = "lineageos-redis"
+
+[[mounts]]
+  destination = "/data"
+  source = "redis_server"
+
+[metrics]
+  port = 9091
+  path = "/metrics"
