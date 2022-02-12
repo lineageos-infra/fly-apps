@@ -13,10 +13,10 @@ RemoteNickFormat="[{LABEL}] <{NICK}> "
 Token="{{ .Env.DISCORD_TOKEN }}"
 Server="628008280605589549"
 Label="discord"
-RemoteNickFormat="<{LABEL}> {NICK}"
-AutoWebhooks=False
+RemoteNickFormat="<{LABEL}> {NICK} "
+AutoWebhooks=true
 UseLocalAvatar=["irc.libera"]
-AllowMention="users"
+AllowMention=["users"]
 
 [[gateway]]
 name="lineageos-dev-irc-lineageos-dev-653821680430481418"
