@@ -14,7 +14,7 @@ Token="{{ .Env.DISCORD_TOKEN }}"
 Server="628008280605589549"
 Label="discord"
 RemoteNickFormat="<{LABEL}> {NICK}"
-AutoWebhooks=true
+AutoWebhooks=False
 UseLocalAvatar=["irc.libera"]
 AllowMention="users"
 
