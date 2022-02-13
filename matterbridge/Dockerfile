@@ -4,8 +4,11 @@ WORKDIR /
 RUN go install github.com/hairyhenderson/gomplate/v3/cmd/gomplate@v3.10.0
 RUN go install github.com/DarthSim/hivemind@v1.0.6
 
-RUN git clone https://github.com/lineageos-infra/matterbridge@53570cfc6179ff7633a490ad83be2c54a7cb3fc1
-RUN cd matterbridge; go build .; cp matterbridge /go/bin/
+RUN git clone https://github.com/lineageos-infra/matterbridge && \
+    cd matterbridge && \
+    git checkout 53570cfc6179ff7633a490ad83be2c54a7cb3fc1 && \
+    go build . && \
+    cp matterbridge /go/bin/
 
 FROM ubuntu:focal
 
