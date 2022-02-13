@@ -1,7 +1,7 @@
 FROM golang:1.17 as builder
 
 WORKDIR /
-RUN go install github.com/42wim/matterbridge@v1.23.2
+RUN go install github.com/lineageos-infra/matterbridge@latest
 RUN go install github.com/hairyhenderson/gomplate/v3/cmd/gomplate@v3.10.0
 RUN go install github.com/DarthSim/hivemind@v1.0.6
 
