@@ -9,6 +9,12 @@ SkipTLSVerify=true
 Label="irc"
 RemoteNickFormat="[{LABEL}] <{NICK}> "
 
+PasteDomain="p.lineageos.org"
+PasteCodeblocks=true
+PasteLongMessages=true
+PastePreviewLines=3
+PasteAPIKey="{{ .Env.PASTE_API_KEY }}"
+
 [discord.lineageos]
 Token="{{ .Env.DISCORD_TOKEN }}"
 Server="628008280605589549"
