@@ -13,6 +13,7 @@ PasteDomain="p.lineageos.org"
 PasteCodeblocks=true
 PasteLongMessages=true
 PastePreviewLines=3
+PasteMinLines=5
 PasteAPIKey="{{ .Env.PASTE_API_KEY }}"
 
 [discord.lineageos]
