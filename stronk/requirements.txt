@@ -1,0 +1,9 @@
+certifi==2022.12.7
+charset-normalizer==3.0.1
+idna==3.4
+limnoria==2023.1.28
+lxml==4.9.2
+pyjq==2.6.0
+pytz==2022.7.1
+requests==2.28.2
+urllib3==1.26.14
