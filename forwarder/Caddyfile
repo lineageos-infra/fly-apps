@@ -1,0 +1,19 @@
+{
+    auto_https off
+}
+
+http://jenkins.lineageos.org {
+    redir https://buildkite.com/lineageos
+}
+
+http://jira.lineageos.org {
+    redir https://gitlab.com/LineageOS/issues
+}
+
+http://translate.lineageos.org {
+    redir https://crowdin.com/profile/LineageOS
+}
+
+http://builds.lineageos.org {
+    redir https://buildkite.com/lineageos/
+}
