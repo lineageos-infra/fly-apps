@@ -1,0 +1,30 @@
+# fly.toml app configuration file generated for lineageos-grafana on 2023-10-25T22:21:52-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "lineageos-grafana"
+primary_region = "sea"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[build]
+image = "grafana/grafana:9.5.3"
+
+[mount]
+source = "grafana_storage"
+destination = "/var/lib/grafana"
+
+[env]
+GF_INSTALL_PLUGINS = "grafana-worldmap-panel,grafana-clock-panel"
+GF_SERVER_DOMAIN = "grafana.lineageos.org"
+GF_SERVER_ROOT_URL = "https://grafana.lineageos.org/"
+GF_AUTH_DISABLE_LOGIN_FORM = "true"
+GF_AUTH_OAUTH_SKIP_ORG_ROLE_UPDATE_SYNC = "true"
+GF_AUTH_SKIP_ORG_ROLE_SYNC = "true"
