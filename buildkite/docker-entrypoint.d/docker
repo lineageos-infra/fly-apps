@@ -1,0 +1,4 @@
+#!/bin/bash
+
+service docker start
+sleep 2
