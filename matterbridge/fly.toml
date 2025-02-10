@@ -1,4 +1,4 @@
-# fly.toml file generated for lineageos-matterbridge on 2021-11-30T17:24:51-08:00
+# fly.toml file generated for lineageos-matterbridge on 2021-11-30T17:24:50-08:00
 
 app = "lineageos-matterbridge"
 
