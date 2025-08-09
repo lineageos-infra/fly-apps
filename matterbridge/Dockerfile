@@ -10,7 +10,7 @@ RUN git clone https://github.com/lineageos-infra/matterbridge && \
     go build . && \
     cp matterbridge /go/bin/
 
-FROM ubuntu:focal
+FROM ubuntu:plucky
 
 COPY --from=builder /go/bin/gomplate /bin/gomplate
 COPY --from=builder /go/bin/matterbridge /bin/matterbridge
