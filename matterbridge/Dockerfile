@@ -1,8 +1,8 @@
-FROM golang:1.22 as builder
+FROM golang:1.24 AS builder
 
 WORKDIR /
-RUN go install github.com/hairyhenderson/gomplate/v3/cmd/gomplate@v3.10.0
-RUN go install github.com/DarthSim/hivemind@v1.0.6
+RUN go install github.com/hairyhenderson/gomplate/v4/cmd/gomplate@v4.3.3
+RUN go install github.com/DarthSim/hivemind@v1.1.0
 
 RUN git clone https://github.com/lineageos-infra/matterbridge && \
     cd matterbridge && \
