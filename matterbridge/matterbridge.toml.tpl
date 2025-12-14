@@ -23,7 +23,7 @@ Label="discord"
 RemoteNickFormat="<{LABEL}> {NICK} "
 AutoWebhooks=true
 UseLocalAvatar=["irc.libera"]
-AllowMention=["users"]
+AllowMention=[]
 
 [[gateway]]
 name="lineageos-dev-irc-lineageos-dev-653821680430481418"
