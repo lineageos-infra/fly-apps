@@ -1,0 +1,13 @@
+--- /usr/local/lib/python3.10/site-packages/supybot/plugins/BadWords/plugin.py
++++ /usr/local/lib/python3.10/site-packages/supybot/plugins/BadWords/plugin.py
+@@ -82,8 +82,8 @@ class BadWords(callbacks.Privmsg):
+                 if self.regexp.search(s):
+                     c = irc.state.channels[channel]
+                     cap = ircdb.makeChannelCapability(channel, 'op')
+-                    if c.isHalfopPlus(irc.nick):
+-                        if c.isHalfopPlus(msg.nick) or \
++                    if c.isVoicePlus(irc.nick):
++                        if c.isVoicePlus(msg.nick) or \
+                                 ircdb.checkCapability(msg.prefix, cap):
+                             self.log.debug("Not kicking %s from %s, because "
+                                            "they are halfop+ or can't be "
