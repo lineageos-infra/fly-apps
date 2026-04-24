@@ -1,0 +1,13 @@
+name: Deploy to app01
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'stronk/**'
+jobs:
+  deploy:
+    name: Deploy stronk
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -H X-Api-Key:${{ secrets.APP01_API_KEY }} https://app01.lineageos.org/deploy/stronk/${{ github.sha }}
