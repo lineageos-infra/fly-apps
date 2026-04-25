@@ -1,7 +1,7 @@
 certifi==2026.4.22
 charset-normalizer==3.4.7
 idna==3.13
-limnoria==2026.1.16
+limnoria==2026.3.21
 lxml==6.1.0
 pyjq==2.6.0
 pytz==2026.1.post1
