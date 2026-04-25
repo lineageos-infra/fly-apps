@@ -6,7 +6,7 @@ RUN go install github.com/DarthSim/hivemind@v1.1.0
 
 RUN git clone https://github.com/lineageos-infra/matterbridge && \
     cd matterbridge && \
-    git checkout 09c6e65c999116a95fb5a34749110552affaecd2 && \
+    git checkout 02ff5e76c4fa12721e672adc257bf81a474db181 && \
     go build . && \
     cp matterbridge /go/bin/
 
