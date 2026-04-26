@@ -1,5 +1,5 @@
---- /usr/local/lib/python3.10/site-packages/supybot/plugins/BadWords/plugin.py
-+++ /usr/local/lib/python3.10/site-packages/supybot/plugins/BadWords/plugin.py
+--- /usr/local/lib/python3.13/site-packages/supybot/plugins/BadWords/plugin.py
++++ /usr/local/lib/python3.13/site-packages/supybot/plugins/BadWords/plugin.py
 @@ -82,8 +82,8 @@ class BadWords(callbacks.Privmsg):
                  if self.regexp.search(s):
                      c = irc.state.channels[channel]
@@ -11,8 +11,8 @@
                                  ircdb.checkCapability(msg.prefix, cap):
                              self.log.debug("Not kicking %s from %s, because "
                                             "they are halfop+ or can't be "
---- /usr/local/lib/python3.10/site-packages/supybot/plugins/Services/plugin.py
-+++ /usr/local/lib/python3.10/site-packages/supybot/plugins/Services/plugin.py
+--- /usr/local/lib/python3.13/site-packages/supybot/plugins/Services/plugin.py
++++ /usr/local/lib/python3.13/site-packages/supybot/plugins/Services/plugin.py
 @@ -70,15 +70,12 @@ class Services(callbacks.Plugin):
      def __init__(self, irc):
          self.__parent = super(Services, self)
@@ -43,8 +43,8 @@
          state = self._getState(irc)
          nick = self._getNick(irc.network)
          if nick not in self.registryValue('nicks', network=irc.network):
---- /usr/local/lib/python3.10/site-packages/supybot/plugins/Unix/config.py
-+++ /usr/local/lib/python3.10/site-packages/supybot/plugins/Unix/config.py
+--- /usr/local/lib/python3.13/site-packages/supybot/plugins/Unix/config.py
++++ /usr/local/lib/python3.13/site-packages/supybot/plugins/Unix/config.py
 @@ -72,7 +72,8 @@ class SpaceSeparatedListOfNonOptionStrings(registry.SpaceSeparatedListOfStrings)
  conf.registerGroup(Unix, 'fortune')
  conf.registerGlobalValue(Unix.fortune, 'command',
