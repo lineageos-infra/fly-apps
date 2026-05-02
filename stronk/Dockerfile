@@ -2,7 +2,7 @@ FROM python:3.13-alpine
 
 COPY limnoria.patch /
 COPY requirements.txt /
-RUN apk add patch
+RUN apk add --no-cache patch
 RUN pip install -r /requirements.txt
 RUN patch -p1 < /limnoria.patch
 WORKDIR /data/stronk
