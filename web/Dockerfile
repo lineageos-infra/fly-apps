@@ -5,7 +5,7 @@ RUN xcaddy build \
 
 FROM caddy:2
 
-RUN apk add bash busctl git php-curl php-fpm podman-remote
+RUN apk add --no-cache bash busctl git php-curl php-fpm podman-remote
 RUN mv /etc/containers/seccomp.json /usr/share/containers/seccomp.json
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 COPY Caddyfile /etc/caddy/Caddyfile
