@@ -22,11 +22,11 @@ stats.lineageos.org {
     reverse_proxy systemd-tribble-tracker:8080
 }
 
-http://download-static.lineageos.org {
+download-static.lineageos.org {
     reverse_proxy systemd-updater-backend:8080
 }
 
-http://download.lineageos.org {
+download.lineageos.org {
     reverse_proxy systemd-updater-client:80
 }
 
