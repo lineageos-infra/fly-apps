@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+import os, time, traceback
+
+import requests
+
+while True:
+    try:
+        print("[github-sync]", "Syncing deploy keys")
+
+        github_keys = []
+        page = 1
+
+        while req := requests.get(
+            url=f"https://api.github.com/orgs/{os.environ['GITHUB_SYNC_REPO']}/members",
+            headers={
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {os.environ['GITHUB_SYNC_TOKEN']}",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+            params={"per_page": 100, "page": page},
+            timeout=5,
+        ).json():
+            for member in req:
+                github_keys += requests.get(
+                    url=f"{member['html_url']}.keys",
+                    timeout=5,
+                ).text.splitlines()
+            page += 1
+
+        gitea_keys = []
+        gitea_keys_ssh = []
+
+        if req := requests.get(
+            url=f"http://localhost:3000/api/v1/repos/{os.environ['GITEA_REPO']}/keys",
+            params={
+                "access_token": os.environ["GITEA_ACCESS_TOKEN"],
+            },
+            timeout=5,
+        ).json():
+            gitea_keys += [x for x in req]
+            gitea_keys_ssh += [x["key"] for x in req]
+
+        for key in list(set(gitea_keys_ssh) - set(github_keys)):
+            key_id = next(x["id"] for x in gitea_keys if x["key"] == key)
+            requests.delete(
+                url=f"http://localhost:3000/api/v1/repos/{os.environ['GITEA_REPO']}/keys/{key_id}",
+                params={
+                    "access_token": os.environ["GITEA_ACCESS_TOKEN"],
+                },
+                timeout=5,
+            )
+
+        for key in list(set(github_keys) - set(gitea_keys_ssh)):
+            requests.post(
+                url=f"http://localhost:3000/api/v1/repos/{os.environ['GITEA_REPO']}/keys",
+                json={
+                    "key": key,
+                    "read_only": False,
+                    "title": key,
+                },
+                params={
+                    "access_token": os.environ["GITEA_ACCESS_TOKEN"],
+                },
+                timeout=5,
+            )
+
+        print("[github-sync]", "Done!")
+    except:
+        print("[github-sync]", traceback.format_exc())
+
+    time.sleep(60 * 15)  # 15 minutes
