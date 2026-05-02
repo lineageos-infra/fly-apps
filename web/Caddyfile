@@ -1,0 +1,51 @@
+app01.lineageos.org {
+    root /srv
+
+    php_fastcgi localhost:9000 {
+        try_files {path} {path}/index.php =404
+    }
+
+    @deploy_script {
+        header X-Api-Key {$APP01_API_KEY}
+        path_regexp deploy_script ^/deploy/(?P<app>[\w]+)/(?P<hash>[a-f0-9]+)$
+    }
+
+    route @deploy_script {
+        exec bash -c "/bin/deploy_scripts/{http.regexp.deploy_script.app}.sh {http.regexp.deploy_script.hash}" {
+            foreground
+            timeout 0
+        }
+    }
+}
+
+http://stats.lineageos.org {
+    reverse_proxy systemd-tribble-tracker:8080
+}
+
+http://download-static.lineageos.org {
+    reverse_proxy systemd-updater-backend:8080
+}
+
+http://download.lineageos.org {
+    reverse_proxy systemd-updater-client:80
+}
+
+http://lfs.undocumented.software {
+    reverse_proxy systemd-gitea:3000
+}
+
+jenkins.lineageos.org {
+    redir https://buildkite.com/lineageos
+}
+
+jira.lineageos.org {
+    redir https://gitlab.com/LineageOS/issues
+}
+
+translate.lineageos.org {
+    redir https://crowdin.com/profile/LineageOS
+}
+
+builds.lineageos.org {
+    redir https://buildkite.com/lineageos/
+}
