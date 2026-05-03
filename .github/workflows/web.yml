@@ -10,4 +10,7 @@ jobs:
     name: Deploy web
     runs-on: ubuntu-latest
     steps:
-      - run: curl -H X-Api-Key:${{ secrets.APP01_API_KEY }} https://app01.lineageos.org/deploy/web/${{ github.sha }}
+      - uses: lineageos-infra/app01-deploy@main
+        with:
+          api_key: ${{ secrets.APP01_API_KEY }}
+          app: web
