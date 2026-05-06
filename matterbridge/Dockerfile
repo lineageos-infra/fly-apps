@@ -1,4 +1,4 @@
-FROM golang:1.24-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 WORKDIR /
 RUN go install github.com/hairyhenderson/gomplate/v4/cmd/gomplate@v4.3.3
