@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "docker"
+    directories:
+      - "/buildkite"
+      - "/gitea"
+      - "/matterbridge"
+      - "/stronk"
+      - "/web"
+    schedule:
+      interval: "weekly"
