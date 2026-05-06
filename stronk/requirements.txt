@@ -4,6 +4,6 @@ idna==3.13
 jq==1.11.0
 limnoria==2026.3.21
 lxml==6.1.0
-pytz==2026.1.post1
+pytz==2026.2
 requests==2.33.1
 urllib3==2.6.3
