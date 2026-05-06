@@ -9,3 +9,8 @@ updates:
       - "/web"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "pip"
+    directories:
+      - "/stronk"
+    schedule:
+      interval: "weekly"
