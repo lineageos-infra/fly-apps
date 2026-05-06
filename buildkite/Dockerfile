@@ -1,6 +1,8 @@
-FROM buildkite/agent:3.125-ubuntu
+FROM buildkite/agent:3.125
 
-RUN apt-get update && apt-get install -y podman fuse-overlayfs catatonit
+RUN apk add --no-cache fuse-overlayfs podman
+RUN mv /etc/containers/seccomp.json /usr/share/containers/seccomp.json
+
 COPY containers.conf /etc/containers/containers.conf
 COPY storage.conf /etc/containers/storage.conf
 COPY ./hooks /hooks
