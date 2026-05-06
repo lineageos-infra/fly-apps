@@ -1,12 +1,23 @@
 name: Deploy to app01
 on:
+  pull_request:
+    paths:
+      - 'gitea/**'
   push:
     branches:
       - main
     paths:
       - 'gitea/**'
 jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: docker build gitea
   deploy:
+    if: github.event_name == 'push'
     name: Deploy gitea
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +26,7 @@ jobs:
           api_key: ${{ secrets.APP01_API_KEY }}
           app: gitea
   notify:
+    if: github.event_name == 'push'
     name: Notify
     runs-on: ubuntu-latest
     needs:
