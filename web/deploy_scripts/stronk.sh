@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -ex
 podman-remote build \
     --tag local-stronk:latest \
