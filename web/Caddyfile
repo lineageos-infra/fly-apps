@@ -11,7 +11,7 @@ app01.lineageos.org {
     }
 
     route @deploy_script {
-        exec bash -c "/bin/deploy_scripts/{http.regexp.deploy_script.app}.sh {http.regexp.deploy_script.hash}" {
+        exec sh -c "/bin/deploy_scripts/{http.regexp.deploy_script.app}.sh {http.regexp.deploy_script.hash}" {
             foreground
             timeout 0
         }
