@@ -18,7 +18,7 @@ app01.lineageos.org {
     }
 }
 
-http://stats.lineageos.org {
+stats.lineageos.org {
     reverse_proxy systemd-tribble-tracker:8080
 }
 
