@@ -9,7 +9,7 @@ SkipTLSVerify=true
 Label="irc"
 RemoteNickFormat="[{LABEL}] <{NICK}> "
 
-PasteDomain="vomitb.in"
+PasteDomain="p.lineageos.org"
 PasteCodeblocks=true
 PasteLongMessages=true
 PastePreviewLines=3
