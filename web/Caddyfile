@@ -30,7 +30,7 @@ http://download.lineageos.org {
     reverse_proxy systemd-updater-client:80
 }
 
-http://lfs.undocumented.software {
+lfs.undocumented.software {
     reverse_proxy systemd-gitea:3000
 }
 
