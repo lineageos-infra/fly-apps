@@ -36,7 +36,7 @@
         }
 
         authorization policy stats_policy {
-            set auth url http://stats.lineageos.org/auth/oauth2/stats
+            set auth url https://stats.lineageos.org/auth/oauth2/stats
             crypto key verify {$STATS_JWT_SHARED_KEY}
             allow roles authp/admin
             validate bearer header
