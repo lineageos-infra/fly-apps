@@ -1,7 +1,8 @@
 FROM caddy:2.11.3-builder AS builder
 
 RUN xcaddy build \
-    --with github.com/abiosoft/caddy-exec=github.com/lineageos-infra/caddy-exec@master
+    --with github.com/abiosoft/caddy-exec=github.com/lineageos-infra/caddy-exec@master \
+    --with github.com/greenpau/caddy-security
 
 FROM caddy:2.11.3
 

@@ -1,3 +1,50 @@
+{
+    order authenticate before respond
+    order authorize before basicauth
+
+    security {
+        oauth identity provider stats_github {
+            driver github
+            realm stats
+            client_id {$STATS_GITHUB_CLIENT_ID}
+            client_secret {$STATS_GITHUB_CLIENT_SECRET}
+        }
+
+        authentication portal stats_portal {
+            crypto default token lifetime 86400
+            crypto key sign-verify {$STATS_JWT_SHARED_KEY}
+            cookie domain stats.lineageos.org
+            enable identity provider stats_github
+
+            ui {
+                links {
+                    "Admin" "/admin" icon "las la-fire"
+                }
+            }
+
+            transform user {
+                match realm stats
+                match sub github.com/luk1337
+                action add role authp/admin
+            }
+
+            transform user {
+                match realm stats
+                match sub github.com/zifnab06
+                action add role authp/admin
+            }
+        }
+
+        authorization policy stats_policy {
+            set auth url http://stats.lineageos.org/auth/oauth2/stats
+            crypto key verify {$STATS_JWT_SHARED_KEY}
+            allow roles authp/admin
+            validate bearer header
+            inject headers with claims
+        }
+    }
+}
+
 app01.lineageos.org {
     root /srv
 
@@ -20,6 +67,15 @@ app01.lineageos.org {
 
 stats.lineageos.org {
     reverse_proxy systemd-tribble-tracker:8080
+
+    redir /admin /admin/
+    redir /auth /auth/
+    redir /internal /internal/
+
+    authenticate /auth/* with stats_portal
+
+    authorize /admin/* with stats_policy
+    authorize /internal/* with stats_policy
 }
 
 http://download-static.lineageos.org {
