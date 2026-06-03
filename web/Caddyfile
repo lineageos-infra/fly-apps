@@ -16,12 +16,6 @@
             cookie domain stats.lineageos.org
             enable identity provider stats_github
 
-            ui {
-                links {
-                    "Admin" "/admin" icon "las la-fire"
-                }
-            }
-
             transform user {
                 match realm stats
                 match sub github.com/luk1337
@@ -32,6 +26,12 @@
                 match realm stats
                 match sub github.com/zifnab06
                 action add role authp/admin
+            }
+
+            transform user {
+                match realm stats
+                match role authp/admin
+                ui link "Admin" "/admin" icon "las la-fire"
             }
         }
 
