@@ -108,7 +108,7 @@ lfs.undocumented.software {
     reverse_proxy systemd-gitea:3000
 }
 
-jenkins.lineageos.org {
+builds.lineageos.org, jenkins.lineageos.org {
     redir https://buildkite.com/lineageos
 }
 
@@ -118,8 +118,4 @@ jira.lineageos.org {
 
 translate.lineageos.org {
     redir https://crowdin.com/profile/LineageOS
-}
-
-builds.lineageos.org {
-    redir https://buildkite.com/lineageos/
 }
