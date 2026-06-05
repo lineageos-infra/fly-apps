@@ -18,7 +18,25 @@
 
             transform user {
                 match realm stats
+                match sub github.com/chirayudesai
+                action add role authp/admin
+            }
+
+            transform user {
+                match realm stats
+                match sub github.com/luca020400
+                action add role authp/admin
+            }
+
+            transform user {
+                match realm stats
                 match sub github.com/luk1337
+                action add role authp/admin
+            }
+
+            transform user {
+                match realm stats
+                match sub github.com/niclimcy
                 action add role authp/admin
             }
 
