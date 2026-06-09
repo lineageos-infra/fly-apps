@@ -22,6 +22,8 @@ Server="628008280605589549"
 Label="discord"
 RemoteNickFormat="<{LABEL}> {NICK} "
 AutoWebhooks=true
+EditDisable=true
+EditMaxDays=1
 UseLocalAvatar=["irc.libera"]
 AllowMention=["users"]
 
