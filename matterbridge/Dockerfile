@@ -10,7 +10,7 @@ RUN git clone https://github.com/lineageos-infra/matterbridge && \
     go build -tags goolm . && \
     cp matterbridge /go/bin/
 
-FROM alpine:3.23
+FROM alpine:3.24
 
 COPY --from=builder /go/bin/gomplate /bin/gomplate
 COPY --from=builder /go/bin/matterbridge /bin/matterbridge
