@@ -6,7 +6,7 @@ RUN go install github.com/hairyhenderson/gomplate/v4/cmd/gomplate@v4.3.3
 RUN apk add --no-cache git
 RUN git clone https://github.com/lineageos-infra/matterbridge && \
     cd matterbridge && \
-    git checkout 1d19973b8c34ae83d6c932aed25cfa93e0dd07ee && \
+    git checkout 64e61733b0bdbe5ac72cbb10dc4525ba1a2b2d4e && \
     go build -tags goolm . && \
     cp matterbridge /go/bin/
 
