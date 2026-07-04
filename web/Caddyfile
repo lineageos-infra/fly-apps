@@ -112,6 +112,10 @@ builds.lineageos.org, jenkins.lineageos.org {
     redir https://buildkite.com/lineageos
 }
 
+flash.lineageos.org {
+    redir https://download.lineageos.org/flash
+}
+
 jira.lineageos.org {
     redir https://gitlab.com/LineageOS/issues
 }
