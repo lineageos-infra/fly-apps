@@ -61,6 +61,11 @@
             inject headers with claims
         }
     }
+
+    servers {
+        trusted_proxies cloudflare
+        client_ip_headers CF-Connecting-IP
+    }
 }
 
 app01.lineageos.org {
