@@ -86,6 +86,8 @@ app01.lineageos.org {
             timeout 0
         }
     }
+
+    file_server
 }
 
 stats.lineageos.org {
