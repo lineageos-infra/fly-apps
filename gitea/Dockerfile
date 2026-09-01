@@ -1,4 +1,4 @@
-FROM gitea/gitea:1.27.2
+FROM gitea/gitea:1.27.3
 
 RUN apk add --no-cache python3 py3-requests
 RUN rm -rf /etc/s6/openssh
