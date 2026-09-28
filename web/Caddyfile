@@ -18,31 +18,31 @@
 
             transform user {
                 match realm stats
-                match sub github.com/chirayudesai
+                match github id exact 952062 # chirayudesai
                 action add role authp/admin
             }
 
             transform user {
                 match realm stats
-                match sub github.com/luca020400
+                match github id exact 3950785 # luca020400
                 action add role authp/admin
             }
 
             transform user {
                 match realm stats
-                match sub github.com/luk1337
+                match github id exact 6830979 # luk1337
                 action add role authp/admin
             }
 
             transform user {
                 match realm stats
-                match sub github.com/niclimcy
+                match github id exact 6513413 # niclimcy
                 action add role authp/admin
             }
 
             transform user {
                 match realm stats
-                match sub github.com/zifnab06
+                match github id exact 283805 # zifnab06
                 action add role authp/admin
             }
 
