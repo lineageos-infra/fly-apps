@@ -77,7 +77,7 @@ app01.lineageos.org {
 
     @deploy_script {
         header X-Api-Key {$APP01_API_KEY}
-        path_regexp deploy_script ^/deploy/(?P<app>[\w]+)/(?P<hash>[a-f0-9]+)$
+        path_regexp deploy_script ^/deploy/(?P<app>[\w-]+)/(?P<hash>[a-f0-9]+)$
     }
 
     route @deploy_script {
