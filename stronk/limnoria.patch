@@ -1,5 +1,5 @@
---- /usr/local/lib/python3.14/site-packages/supybot/plugins/BadWords/plugin.py
-+++ /usr/local/lib/python3.14/site-packages/supybot/plugins/BadWords/plugin.py
+--- /usr/local/lib/python3.15/site-packages/supybot/plugins/BadWords/plugin.py
++++ /usr/local/lib/python3.15/site-packages/supybot/plugins/BadWords/plugin.py
 @@ -82,8 +82,8 @@ class BadWords(callbacks.Privmsg):
                  if self.regexp.search(s):
                      c = irc.state.channels[channel]
