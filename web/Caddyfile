@@ -71,7 +71,7 @@
 app01.lineageos.org {
     root /srv
 
-    php_fastcgi localhost:9000 {
+    php_fastcgi systemd-web-php-fpm:9000 {
         try_files {path} {path}/index.php =404
     }
 

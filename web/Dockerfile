@@ -7,10 +7,8 @@ RUN xcaddy build \
 
 FROM caddy:2.11.7
 
-RUN apk add --no-cache git netcat-openbsd php-curl php-fpm podman-remote
+RUN apk add --no-cache git netcat-openbsd podman-remote
 RUN mv /etc/containers/seccomp.json /usr/share/containers/seccomp.json
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY deploy_scripts /bin/deploy_scripts
-
-CMD sh -c "php-fpm84 && caddy run --config /etc/caddy/Caddyfile --adapter caddyfile"
