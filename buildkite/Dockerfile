@@ -1,4 +1,4 @@
-FROM buildkite/agent:4.10
+FROM buildkite/agent:4.12
 
 RUN apk add --no-cache fuse-overlayfs podman
 RUN mv /etc/containers/seccomp.json /usr/share/containers/seccomp.json
